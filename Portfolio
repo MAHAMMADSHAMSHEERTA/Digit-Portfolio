@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <style>
-        /* Reset default margins and paddings */
+        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #e984e9;
             color: #333;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
         }
 
-        /* Header styles */
+        /* Header Styling */
         header {
             background-color: #94198a;
             color: #fff;
@@ -28,37 +30,42 @@
             position: relative;
         }
 
-        .header-content h1 {
-            font-size: 2.5rem;
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Profile picture styles */
         .profile-picture {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            position: absolute;
-            top: 75px;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-bottom: 1rem;
         }
 
-        /* Navigation bar styles */
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Styling */
         nav {
             background-color: rgba(52, 52, 52, 0.8);
             color: #fff;
-            text-align: center;
+            display: flex;
+            justify-content: center;
             padding: 1rem 0;
         }
 
         nav ul {
             list-style-type: none;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
+            display: flex;
+            gap: 20px;
         }
 
         nav ul li a {
@@ -71,43 +78,34 @@
             text-decoration: underline;
         }
 
-        /* Section styles */
-        .section-content {
-            background-color: #fff;
+        /* Main Content Styling */
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             padding: 2rem;
-            margin: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: justify;
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
-        .section-content h2 {
+        section {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
 
-        /* Skills list styles */
         ul {
             list-style-type: disc;
             padding-left: 20px;
         }
 
-        /* Download button styles */
-        .download-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .download-button:hover {
-            background-color: #555;
-        }
-
-        /* Footer styles */
+        /* Footer Styling */
         footer {
             text-align: center;
             padding: 1rem 0;
@@ -115,18 +113,20 @@
             color: #fff;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 2rem;
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: 1fr 1fr;
             }
 
-            nav ul li {
-                margin: 0 10px;
+            section {
+                margin: 1rem;
             }
+        }
 
-            .section-content {
-                margin: 1rem 0;
+        @media (min-width: 1024px) {
+            main {
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
     </style>
@@ -134,7 +134,6 @@
 <body>
     <header>
         <div class="header-content">
-            <!-- Profile picture -->
             <img src="path/to/your/profile-picture.jpg" alt="Your Profile Picture" class="profile-picture">
             <h1>Mohammad Shamsheer T.A</h1>
             <p>A Computer Application Student</p>
@@ -151,58 +150,19 @@
         </ul>
     </nav>
 
-    <section id="about">
-        <div class="section-content">
+    <main>
+        <section id="about">
             <h2>About Me</h2>
             <p>I'm a Computer Application student with a passion for creating dynamic and user-friendly websites. I'm driven by the desire to craft high-performance web applications that enhance user experience and provide seamless digital solutions. With over 2 years of experience in the field, I'm dedicated to staying up to date with the latest trends and innovations in the computing landscape. I'm proficient in programming languages like Python, Java, and C++.</p>
-        </div>
-    </section>
+        </section>
 
-    <section id="education">
-        <div class="section-content">
+        <section id="education">
             <h2>Education</h2>
-            <p>Bachelor of Computer Applications (BCA)</p>
+            <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
             <p>University of Madras</p>
             <p>Expected Graduation: 2025</p>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <div class="section-content">
+        <section id="skills">
             <h2>Skills</h2>
-            <ul>
-                <li>Cloud Computing</li>
-                <li>Python</li>
-                <li>Spring Framework</li>
-                <li>Machine Learning & AI</li>
-                <li>Java</li>
-                <li>C++</li>
-                <li>JavaScript</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="section-content">
-            <h2>Projects</h2>
-            <ul>
-                <li><a href="#">E-Cart Website</a></li>
-                <li><a href="#">Cloud Security with IBM</a></li>
-                <li><a href="#">IBM Chatbot</a></li>
-                <li><a href="#">College Portal</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="resume">
-        <div class="section-content" style="text-align: center;">
-            <h2>Resume</h2>
-            <a href="path/to/your/shamsheer_resume.pdf" target="_blank" class="download-button">Download CV</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Mohammad Shamsheer T.A</p>
-    </footer>
-</body>
-</html>
+            <ul
